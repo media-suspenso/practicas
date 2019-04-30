@@ -20,7 +20,5 @@ Cuestionario3_3[is.na(Cuestionario3_3)] = 0
 TotalCuestionarios_3 = c(datos$Total.cuestionarios..0.1.*10)
 TotalCuestionarios_3[TotalCuestionarios_3>10] = 10
 TotalCuestionarios_3[is.na(TotalCuestionarios_3)] = 0
- modelo <- lm(PracticaFinal ~ Practica2 + Practica3 +Practica1) # Crea un modelo para la practicaFinal teniendo en cuenta las 3 practicas
- predict(modelo,data.frame(Practica2,Practica3,Practica1)) #Predice la practica final respecto las 3 practicas
- PrediccionCualitativa = predict(modelo,data.frame(Practica2,Practica3,Practica1)) #Guardo en una variable las predicciones en forma cuantitativa
-PruebaCuantitativa=cut(Prueba, breaks = c(-1, 5, 10), labels = c("Suspenso", "Aprobado")) #Transformo las variables a cualitativas
+ modelo2 <- lm(Practica1 ~ Practica2) #Crea un modelo sobre la practica 1 en base a la practica2
+ predict(modelo,data.frame(Practica2=5))#Predice la nota de la practica 1 teniendo un 5 en la practica2
