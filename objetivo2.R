@@ -39,5 +39,5 @@ n <- naiveBayes(P1_2 ~ ., data = as.data.frame(NFJ_2))
 
 modelo2 <- lm(NotaFinalJunio ~ Practica2 + Practica3 +Practica1+TotalCuestionarios)
  PrediccionCuantitativa2 = predict(modelo2,data.frame(Practica2,Practica3,Practica1,TotalCuestionarios))
- PrediccionCualitativa2 =cut(PrediccionCuantitativa2, breaks = c(-1,1, 5,7,9,9.99999, 10), labels = c("Suspendidisimo","Suspenso", "Aprobado","Notable","Sobresaliente","Mátricula de honor"))
+ PrediccionCualitativa2 =cut(PrediccionCuantitativa2, breaks = c(-1,0.1, 5,7,9, 10), labels = c("No Presentado","Suspenso", "Aprobado","Notable","Sobresaliente"))
  
