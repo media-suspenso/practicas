@@ -20,6 +20,20 @@ Cuestionario3_3[is.na(Cuestionario3_3)] = 0
 TotalCuestionarios_3 = c(datos$Total.cuestionarios..0.1.*10)
 TotalCuestionarios_3[TotalCuestionarios_3>10] = 10
 TotalCuestionarios_3[is.na(TotalCuestionarios_3)] = 0
+
+P1_3 = cut(Practica1_3, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels = c("No Presentado", "Suspenso", "Aprobado", "Notable", "Sobresaliente"))
+P2_3 = cut(Practica2_3, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels = c("No Presentado", "Suspenso", "Aprobado", "Notable", "Sobresaliente"))
+P3_3 = cut(Practica3_3, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels = c("No Presentado", "Suspenso", "Aprobado", "Notable", "Sobresaliente"))
+PF_3 = cut(PracticaFinal_3, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels = c("No Presentado", "Suspenso", "Aprobado", "Notable", "Sobresaliente"))
+
+C1_3 = cut(Cuestionario1_3, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels = c("No Presentado", "Suspenso", "Aprobado", "Notable", "Sobresaliente"))
+C2_3 = cut(Cuestionario2_3, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels = c("No Presentado", "Suspenso", "Aprobado", "Notable", "Sobresaliente"))
+C3_3 = cut(Cuestionario3_3, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels = c("No Presentado", "Suspenso", "Aprobado", "Notable", "Sobresaliente"))
+TC_3 = cut(TotalCuestionarios_3, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels = c("No Presentado", "Suspenso", "Aprobado", "Notable", "Sobresaliente"))
+
+NotaFinalJunio_2 = c(datos$NOTA.FINAL.JUNIO...0.10.)
+NotaFinalJunio_2[is.na(NotaFinalJunio_2)] = -1
+NFJ_2 = cut(NotaFinalJunio_2, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels = c("No Presentado", "Suspenso", "Aprobado", "Notable", "Sobresaliente"))
  modelo2 <- lm(Practica1 ~ Practica2) #Crea un modelo sobre la practica 1 en base a la practica2
  predict(modelo,data.frame(Practica2=5))#Predice la nota de la practica 1 teniendo un 5 en la practica2
  modelo <- lm(PracticaFinal ~ Practica2 + Practica3 +Practica1+TotalCuestionarios) # Crea un modelo para la practicaFinal teniendo en cuenta las 3 practicas y los cuestionarios
