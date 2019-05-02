@@ -35,6 +35,8 @@ NotaFinalJunio_2 = c(datos$NOTA.FINAL.JUNIO...0.10.)
 NotaFinalJunio_2[is.na(NotaFinalJunio_2)] = -1
 NFJ_2 = cut(NotaFinalJunio_2, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels = c("No Presentado", "Suspenso", "Aprobado", "Notable", "Sobresaliente"))
 
+n <- naiveBayes(P1_2 ~ ., data = as.data.frame(NFJ_2))
+
 modelo2 <- lm(NotaFinalJunio ~ Practica2 + Practica3 +Practica1+TotalCuestionarios)
  PrediccionCuantitativa2 = predict(modelo2,data.frame(Practica2,Practica3,Practica1,TotalCuestionarios))
  PrediccionCualitativa2 =cut(PrediccionCuantitativa2, breaks = c(-1,1, 5,7,9,9.99999, 10), labels = c("Suspendidisimo","Suspenso", "Aprobado","Notable","Sobresaliente","Mátricula de honor"))
