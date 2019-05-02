@@ -26,3 +26,30 @@ TotalCuestionarios_3[is.na(TotalCuestionarios_3)] = 0
  predict(modelo,data.frame(Practica2,Practica3,Practica1,TotalCuestionarios)) #Predice la practica final respecto las 3 practicas y cuestionarios
  PrediccionCualitativa = predict(modelo,data.frame(Practica2,Practica3,Practica1,TotalCuestionarios)) #Guardo en una variable las predicciones en forma cuantitativa
 PruebaCuantitativa=cut(Prueba, breaks = c(-1, 5, 10), labels = c("Suspenso", "Aprobado")) #Transformo las variables a cualitativas
+#3.3
+datos2 <- read.csv("Notas2.csv", sep = ";", dec = ",", header = T)
+Cuestionario1_1.1=c(datos2$C1)
+Cuestionario1_1.1[is.na(Cuestionario1_1.1)] = 0
+Cuestionario1_2.1=c(datos2$C2)
+Cuestionario1_2.1[is.na(Cuestionario1_2.1)] = 0
+Practica1_1.1=c(datos2$P1)
+Practica1_1.1[is.na(Practica1_1.1)] = 0
+P1_1.1=cut(Practica1_1.1, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels = c("No Presentado", "Suspenso", "Aprobado", "Notable", "Sobresaliente"))
+C1_1.1=cut(Cuestionario1_1.1, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels = c("No Presentado", "Suspenso", "Aprobado", "Notable", "Sobresaliente"))
+C2_2.1=cut(Cuestionario1_2.1, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels = c("No Presentado", "Suspenso", "Aprobado", "Notable", "Sobresaliente"))
+modelo3 <- lm(NotaFinalJunio_2 ~ Cuestionario1_1.1 + Cuestionario1_2.1 + Practica1_1.1)
+predict(modelo3,data.frame(Cuestionario1_1.1,Cuestionario1_2.1,Practica1_1.1))
+#Tablas Personales
+datos3 <- read.csv("Notas3.csv", sep = ";", dec = ",", header = T)
+Cuestionario1_1.2=c(datos3$C1)
+Cuestionario1_1.2[is.na(Cuestionario1_1.1)] = -1
+Cuestionario1_2.2=c(datos3$C2)
+Cuestionario1_2.2[is.na(Cuestionario1_2.1)] = -1
+Practica1_1.2=c(datos3$P1)
+Practica1_1.2[is.na(Practica1_1.1)] = -1
+P1_1.2=cut(Practica1_1.2, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels = c("No Presentado", "Suspenso", "Aprobado", "Notable", "Sobresaliente"))
+table(P1_1.2)
+C1_1.2=cut(Cuestionario1_1.2, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels = c("No Presentado", "Suspenso", "Aprobado", "Notable", "Sobresaliente"))
+table(C1_1.2)
+C2_2.2=cut(Cuestionario1_2.2, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels = c("No Presentado", "Suspenso", "Aprobado", "Notable", "Sobresaliente"))
+table(C2_2.2)
