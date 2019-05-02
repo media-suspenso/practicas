@@ -42,3 +42,5 @@ NFJ = cut(NotaFinalJunio, breaks = c(-1, 5, 10), labels = c("Suspenso", "Aprobad
 
 m <- naiveBayes(P1 ~ ., data = as.data.frame(NFJ))
 View(P1)
+
+conjuntob <- naiveBayes(P1,C1)
