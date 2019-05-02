@@ -40,5 +40,5 @@ NotaFinalJunio = c(datos$NOTA.FINAL.JUNIO...0.10.)
 NotaFinalJunio[is.na(NotaFinalJunio)] = -1
 NFJ = cut(NotaFinalJunio, breaks = c(-1, 5, 10), labels = c("Suspenso", "Aprobado"))
 
-m <- naiveBayes(Practica1, data = as.data.frame(P1))
+m <- naiveBayes(P1 ~ ., data = as.data.frame(NFJ))
 View(P1)
