@@ -67,3 +67,6 @@ C1_1.2=cut(Cuestionario1_1.2, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels 
 table(C1_1.2)
 C2_2.2=cut(Cuestionario1_2.2, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels = c("No Presentado", "Suspenso", "Aprobado", "Notable", "Sobresaliente"))
 table(C2_2.2)
+#3.2
+modelo <- lm(NotaFinalJunio_2 ~ Practica1_3 + P2_3+ P3_3+TotalCuestionarios_3)
+predict(modelo,data.frame(Practica1_3 + P2_3+ P3_3+TotalCuestionarios_3))#Podemos observar que las notas varian algunas decimas mezclando variables cuantitativas y cualitativas
