@@ -50,3 +50,16 @@ mP1 <- naiveBayes(P1 ~ ., data = as.data.frame(NFJ))
 mP2 <- naiveBayes(P2 ~ ., data = as.data.frame(NFJ))
 mP3 <- naiveBayes(P3 ~ ., data = as.data.frame(NFJ))
 mPF <- naiveBayes(PF ~ ., data = as.data.frame(NFJ))
+
+C1P1 <- lm(NotaFinalJunio~Cuestionario1+Practica1)
+PrC1P1 <- predict(C1P1,data.frame(Cuestionario1+Practica1))
+obj1p3a2 <- naiveBayes(PrC1P1 ~ ., data = as.data.frame(NotaFinalJunio))
+
+C2P2 <- lm(NotaFinalJunio~Cuestionario1+Practica1+Cuestionario2+Practica2)
+PrC2P2 <- predict(C1P1,data.frame(Cuestionario1+Practica1+Cuestionario2+Practica2))
+obj1p3a3 <- naiveBayes(PrC2P2 ~ ., data = as.data.frame(NotaFinalJunio))
+
+C3P3 <- lm(NotaFinalJunio~Cuestionario1+Practica1+Cuestionario2+Practica2+Cuestionario3+Practica3+PracticaFinal)
+PrC3P3 <- predict(C1P1,data.frame(Cuestionario1+Practica1+Cuestionario2+Practica2+Cuestionario3+Practica3+PracticaFinal))
+obj1p3a4 <- naiveBayes(PrC3P3 ~ ., data = as.data.frame(NotaFinalJunio))
+
