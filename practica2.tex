@@ -36,10 +36,32 @@
 
 
 \title{Práctica 2}
-\author{Alumna Alumna Alumna\\ \vspace{5mm} Estadística I \\ Grupo 1}
+\author{Alejandro Romero Rodríguez Carmen Escudero López Carlos Tejada Peralta Irene Cañadas Pastor Enrique Tortosa Haro Francisco Segura Loh\\ \vspace{5mm} Estadística I}
 
 \begin{document}
+Objetivo 1
+Hemos sacado las variables cuantitativas del archivo csv agrupándolos en distintos arrays y las hemos transformado en cualitativas con el comando "cut" y asignándoles las categorías de "Suspenso" o "Aprobado" con "labels".
 
+Para poder usar los comandos de Naive Bayes, hemos cargado la librería "e1071" que contiene los comandos para ejecutarlos. Hemos usado:
+naiveBayes: con este comando creamos una tabla de sucesos en la que vemos la probabilidad que tienen los alumnos de aprobar o suspender sabiendo previamente las notas de las prácticas y los cuestionarios.
+lm: con este comando hemos juntado varios datos (cuestionarios y prácticas) para poder lograr el apartado 4 del objetivo.
+predict: este comando ejecuta una predicción de Naive Bayes. 
+
+Primero hemos comenzado por predecir si un alumno puede aprobar o suspender dependiendo solo de las prácticas y los cuestionarios por separado. Con ello, hemos conseguido calcular el porcentaje de acierto de Naive Bayes, que es el apartado 2 de este objetivo. 
+
+Para terminar este objetivo, hemos usado el comando "lm" para juntar distintas variables de las prácticas y los cuestionarios obteniendo la probabilidad que tienen los alumnos de aprobar o suspender dependiendo de esas variables y finalizando con el comando predict, el cual nos da una predicción fiable de que probabilidad tendría un alumno según sus notas de aprobar o suspender la asignatura.
+
+Objetivo 2
+Para comenzar, hemos separado con los mismos comandos del objetivo 1 las distintas prácticas y cuestionarios, pero esta vez teniendo en cuenta los alumnos no presentados con el comando "is.na" y separando las notas, ya no solo en aprobados y suspensos, sino que además hemos añadido notables y sobresalientes para predecir qué notas puede sacar un alumno con más exactitud.
+
+Si hacemos Naive Bayes a alguno de los cuestionarios, el alumno tiene más probabilidad de suspender que de aprobar, ya que por separado puede no haberse presentado a algunos cuestionarios, pero si directamente miramos el total de los cuestionarios, los no presentados tienen un 100 por cierto de probabilidad de suspender. Podemos asumir que los que no se presentan a los cuestionarios no se presentan al examen final de junio.
+
+Comparando las probabilidades de los cuestionarios con los de las prácticas, la probabilidad de suspender el examen no presentando las prácticas es del 100 por ciento en todos los casos, ya sea una práctica por separada o todas. La probabilidad de suspender el examen no asistiendo a los cuestionarios es muy grande, pero no es imposible. La cantidad de suspensos en relación con las prácticas es bastante mayor que en los cuestionarios.
+
+Se pueden predecir las notas de los alumnos como suspensos, aprobados, notables o sobresalientes, pero con menos exactitud que solo viendo aprobados o suspensos. Ejecutando el comando "predict" en los Naive Bayes, vemos que hay una diferencia negativa entre ello.
+
+Objetivo 3
+Hemos copiado los comandos del objetivo 1 y los hemos mantenido en variables cuantitativas. A raíz de esos datos, hemos transformado la nota final de junio en aprobados y suspensos para así utilizar el comando "naiveBayes" con variables cuantitativas y cualitativas. Hemos llegado a la conclusión de que se puede obtener un resultado más preciso si no transformas algunas variables en cualitativas, pero es algo menos óptimo a la hora de ver los aprobados o los suspensos. 
 \thispagestyle{empty}
 
 \begin{center}
