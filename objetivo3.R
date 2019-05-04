@@ -34,12 +34,12 @@ TC_3 = cut(TotalCuestionarios_3, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labe
 NotaFinalJunio_2 = c(datos$NOTA.FINAL.JUNIO...0.10.)
 NotaFinalJunio_2[is.na(NotaFinalJunio_2)] = -1
 NFJ_2 = cut(NotaFinalJunio_2, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels = c("No Presentado", "Suspenso", "Aprobado", "Notable", "Sobresaliente"))
- modelo2 <- lm(Practica1 ~ Practica2) #Crea un modelo sobre la practica 1 en base a la practica2
- predict(modelo,data.frame(Practica2=5))#Predice la nota de la practica 1 teniendo un 5 en la practica2
- modelo <- lm(PracticaFinal ~ Practica2 + Practica3 +Practica1+TotalCuestionarios) # Crea un modelo para la practicaFinal teniendo en cuenta las 3 practicas y los cuestionarios
- predict(modelo,data.frame(Practica2,Practica3,Practica1,TotalCuestionarios)) #Predice la practica final respecto las 3 practicas y cuestionarios
- PrediccionCualitativa = predict(modelo,data.frame(Practica2,Practica3,Practica1,TotalCuestionarios)) #Guardo en una variable las predicciones en forma cuantitativa
-PruebaCuantitativa=cut(Prueba, breaks = c(-1, 5, 10), labels = c("Suspenso", "Aprobado")) #Transformo las variables a cualitativas
+ modelo2 <- lm(Practica1_3 ~ Practica2_3) #Crea un modelo sobre la practica 1 en base a la practica2
+ predict(modelo,data.frame(Practica2_3=5))#Predice la nota de la practica 1 teniendo un 5 en la practica2
+ modelo <- lm(PracticaFinal_3 ~ Practica2_3 + Practica3_3 +Practica1_3+TotalCuestionarios_3) # Crea un modelo para la practicaFinal teniendo en cuenta las 3 practicas y los cuestionarios
+ predict(modelo,data.frame(Practica2_3,Practica3_3,Practica1_3,TotalCuestionarios_3)) #Predice la practica final respecto las 3 practicas y cuestionarios
+ PrediccionCuantitativa = predict(modelo,data.frame(Practica2_3,Practica3_3,Practica1_3,TotalCuestionarios_3)) #Guardo en una variable las predicciones en forma cuantitativa
+PrediccionCualitativa=cut(PrediccionCuantitativa, breaks = c(-1, 5, 10), labels = c("Suspenso", "Aprobado")) #Transformo las variables a cualitativas
 #3.3
 datos2 <- read.csv("Notas2.csv", sep = ";", dec = ",", header = T)
 Cuestionario1_1.1=c(datos2$C1)
