@@ -37,6 +37,15 @@ NFJ_2 = cut(NotaFinalJunio_2, breaks = c(-1.1, -0.1, 4.9, 6.9, 8.9, 10), labels 
 
 n <- naiveBayes(P1_2 ~ ., data = as.data.frame(NFJ_2))
 
+mC1_2 <- naiveBayes(C1_2 ~ ., data = as.data.frame(NFJ_2))
+mC2_2 <- naiveBayes(C2_2 ~ ., data = as.data.frame(NFJ_2))
+mC3_2 <- naiveBayes(C3_2 ~ ., data = as.data.frame(NFJ_2))
+mTC_2 <- naiveBayes(TC_2 ~ ., data = as.data.frame(NFJ_2))
+mP1_2 <- naiveBayes(P1_2 ~ ., data = as.data.frame(NFJ_2))
+mP2_2 <- naiveBayes(P2_2 ~ ., data = as.data.frame(NFJ_2))
+mP3_2 <- naiveBayes(P3_2 ~ ., data = as.data.frame(NFJ_2))
+mPF_2 <- naiveBayes(PF_2 ~ ., data = as.data.frame(NFJ_2))
+
 modelo2 <- lm(NotaFinalJunio ~ Practica2 + Practica3 +Practica1+TotalCuestionarios)
  PrediccionCuantitativa2 = predict(modelo2,data.frame(Practica2,Practica3,Practica1,TotalCuestionarios))
  PrediccionCualitativa2 =cut(PrediccionCuantitativa2, breaks = c(-1,0.1, 5,7,9, 10), labels = c("No Presentado","Suspenso", "Aprobado","Notable","Sobresaliente"))
